@@ -1,41 +1,46 @@
-# ai-task-planner
-Project Structure section and other improvements:
+AI Task Planner
 
-AI Task Manager
+An intelligent to-do list manager that helps you plan your day using AI-powered task generation and a beautiful weekly calendar view.
 
-A smart and minimalistic task management web application built with Flask and MongoDB. It allows you to create, view, and complete tasks while integrating AI-powered task generation using the Groq API. The user interface is clean, pastel-themed, and optimized for usability.
+🎯 Live Demo: [https://ai-task-planner-ymve.onrender.com](https://ai-task-planner-ymve.onrender.com)
+
+![Build](https://img.shields.io/badge/build-passing-brightgreen)
+![License](https://img.shields.io/badge/license-MIT-blue)
+![Made with Python](https://img.shields.io/badge/Made%20with-Flask-blue)
+
+---
+
+Features
+
+- Add tasks with priority, deadline & category
+- Mark tasks as complete
+- View Daily and Weekly task calendars
+- Generate smart to-do lists using Groq's AI
+- Save, delete or add AI-generated tasks to your planner
+
+---
+
+Tech Stack
+
+- Python (Flask)
+- MongoDB Atlas
+- Bootstrap 5
+- Jinja2 Templates
+- Render (for deployment)
+- Groq AI (llama3-8b-8192 model)
+
+---
 
 
 
-.Features
 
-1.Add tasks with priority, deadline, and category
+Setup Instructions
 
-2.Mark tasks as completed
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Tvitter/ai-task-planner.git
+   cd ai-task-planner
 
-3.View tasks organized by:
-
-Daily
-
-Weekly (calendar-style layout)
-
-1.AI-powered task generation via Groq
-
-2.Beautiful, pastel-themed Bootstrap UI
-
-Tech Stack:-
-
-1.Python 3.x
-
-2.Flask (Backend Framework)
-
-3.MongoDB (Database, via MongoDB Atlas)
-
-4.Jinja2 (Templating Engine)
-
-5.Bootstrap 5 (Frontend Styling)
-
-6.Groq API (for AI-generated task lists)
 
 
 
