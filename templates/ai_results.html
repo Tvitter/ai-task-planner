@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<style>
+  h2 {
+    color: #6b4f34;
+    font-weight: bold;
+  }
+
+  .list-group-item {
+    background-color: #fffdf4;
+    border: 1px solid #f3e2b3;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+
+  .prompt-title {
+    font-weight: 600;
+    color: #5a4324;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  ul.generated-tasks {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+
+  ul.generated-tasks li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .btn-sm {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .btn-add {
+    background-color: #a4d68e;
+    border-color: #a4d68e;
+    color: white;
+  }
+
+  .btn-add:hover {
+    background-color: #8fcf75;
+  }
+
+  .btn-delete {
+    background-color: #ffc4a3;
+    border-color: #ffc4a3;
+    color: #5c2d15;
+  }
+
+  .btn-delete:hover {
+    background-color: #f7b690;
+  }
+</style>
+
+<h2 class="mb-4">AI Generated Tasks</h2>
+
+<div class="list-group">
+  {% for result in results %}
+  <div class="list-group-item">
+    <div class="prompt-title">Prompt: {{ result.prompt }}</div>
+    <ul class="generated-tasks">
+      {% for line in result.response.split('\n') %}
+        {% if line.strip() %}
+        <li>
+          <span>{{ line | replace('-', '') | replace('*', '') | replace('•', '') | trim() }}</span>
+          <span>
+            <a href="#" class="btn btn-add btn-sm">Add</a>
+            <a href="#" class="btn btn-delete btn-sm">Delete</a>
+          </span>
+        </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+  {% else %}
+  <div class="list-group-item text-muted">No AI generated tasks yet.</div>
+  {% endfor %}
+</div>
+
+{% endblock %}

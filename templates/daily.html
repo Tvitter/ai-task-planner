@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Daily Tasks</h2>
+<ul class="list-group">
+  {% for task in tasks %}
+  <li class="list-group-item d-flex justify-content-between align-items-center">
+    {{ task.task }}
+    {% if not task.completed %}
+      <a href="/complete/{{ task._id }}" class="btn btn-success btn-sm">Mark as Done</a>
+    {% else %}
+      <span class="badge bg-secondary">Completed</span>
+    {% endif %}
+  </li>
+  {% else %}
+  <li class="list-group-item">No daily tasks found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

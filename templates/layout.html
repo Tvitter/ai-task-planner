@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Task Manager with AI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  <style>
+    body {
+      background-color: #fffdf4;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .navbar {
+      background-color: #ffe793 !important;
+      box-shadow: 0 4px 6px rgba(249, 207, 116, 0.3);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #4b3f2f !important;
+    }
+
+    .navbar-nav .nav-link {
+      color: #5a4323 !important;
+      font-weight: 500;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      border-radius: 4px;
+      padding: 6px 10px;
+    }
+
+    .navbar-nav .nav-link:hover {
+      background-color: #fff2c2;
+      color: #3e2b14 !important;
+    }
+
+    .alert-info {
+      background-color: #fff9d9;
+      border-color: #faeab8;
+      color: #5e4b2d;
+    }
+
+    .container {
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">AI Task Manager</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: brightness(0.5);"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/add">Add Task</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/generate">Generate with AI</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/ai-results">View AI Results</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/weekly">Weekly Tasks</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alert alert-info">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    {% block content %}{% endblock %}
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

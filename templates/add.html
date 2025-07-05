@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Add a New Task</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="task" class="form-label">Task</label>
+    <input type="text" class="form-control" id="task" name="task" required>
+  </div>
+  <div class="mb-3">
+    <label for="priority" class="form-label">Priority</label>
+    <select class="form-control" id="priority" name="priority">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="deadline" class="form-label">Deadline</label>
+    <input type="date" class="form-control" id="deadline" name="deadline">
+  </div>
+  <div class="mb-3">
+    <label for="category" class="form-label">Category</label>
+    <select class="form-control" id="category" name="category">
+      <option value="daily">Daily</option>
+      <option value="weekly">Weekly</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Task</button>
+</form>
+{% endblock %}

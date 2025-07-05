@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2 class="mb-4">Generate Task List with AI</h2>
+<form method="POST">
+  <div class="mb-3">
+    <label for="prompt" class="form-label">Enter your prompt</label>
+    <input type="text" class="form-control" id="prompt" name="prompt" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Generate</button>
+</form>
+{% endblock %}
