@@ -105,7 +105,6 @@ def ai_results():
     results = list(ai_tasks_collection.find())
     return render_template("ai_results.html", results=results)
 
-# ✅ New: Add individual AI task
 @app.route("/add-ai-task", methods=["POST"])
 def add_ai_task():
     task_text = request.form.get("task_text")
@@ -121,7 +120,6 @@ def add_ai_task():
         flash("Task added successfully.")
     return redirect(url_for("ai_results"))
 
-# ✅ New: Delete full AI result block
 @app.route("/delete-ai-result/<result_id>", methods=["POST"])
 def delete_ai_result(result_id):
     ai_tasks_collection.delete_one({"_id": ObjectId(result_id)})
@@ -159,8 +157,11 @@ def weekly_tasks():
 
     return render_template("weekly.html", week_schedule=week_schedule)
 
+# ✅ Only one __main__ block for Render
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Required for Render
+    app.run(debug=False, host='0.0.0.0', port=port)
+
 
 
 
